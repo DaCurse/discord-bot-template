@@ -1,0 +1,33 @@
+{
+  "name": "discord-bot-template",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DaCurse/discord-bot-template#readme",
+  "bugs": {
+    "url": "https://github.com/DaCurse/discord-bot-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaCurse/discord-bot-template.git"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean && rimraf node_modules",
+    "dev": "turbo run dev --parallel",
+    "format": "prettier --write .",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "prettier": "latest",
+    "rimraf": "^3.0.2",
+    "turbo": "latest"
+  },
+  "packageManager": "npm@8.9.0",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
+  }
+}

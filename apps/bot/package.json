@@ -1,0 +1,18 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "DaCurse",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "clean": "rimraf .turbo && rimraf node_modules && rimraf dist",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --onSuccess \"node dist/index.js\"",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint src/**/*.ts* --fix",
+    "start": "node dist/index.js"
+  }
+}
