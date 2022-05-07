@@ -4,7 +4,7 @@
   "extends": "./base.json",
   "compilerOptions": {
     "lib": ["es2020"],
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "es2020",
     "strict": true,
     "esModuleInterop": true,

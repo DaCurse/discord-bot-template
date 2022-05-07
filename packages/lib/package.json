@@ -6,15 +6,14 @@
   "author": "DaCurse",
   "sideEffects": false,
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts --format cjs --dts --external discord.js",
     "clean": "rimraf .turbo && rimraf node_modules && rimraf dist",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "dev": "tsup src/index.ts --format cjs --watch --dts --external discord.js",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint src/**/*.ts* --fix"
   },
   "devDependencies": {
