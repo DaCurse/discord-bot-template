@@ -1,5 +1,8 @@
-import { createEvent } from 'lib'
+import type { BotEvent } from 'lib'
 
-export const event = createEvent('ready', (bot, client) => {
-  console.log(client.user.tag)
-})
+export const event: BotEvent<'ready'> = {
+  name: 'ready',
+  async run(bot) {
+    console.log('ready', bot.discordClient.user.tag)
+  },
+}

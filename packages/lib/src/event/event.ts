@@ -12,10 +12,3 @@ export interface BotEvent<TEvent extends EventName = EventName> {
   name: TEvent
   run: EventCallback<TEvent>
 }
-
-export function createEvent<TEvent extends EventName>(
-  name: TEvent,
-  run: EventCallback<TEvent>
-): BotEvent<TEvent> {
-  return { name, run }
-}
