@@ -1,12 +1,13 @@
 import type { Client } from 'discord.js'
-import { EventManager } from '../event'
+import type { EventManager } from '../event'
 
 export class BotClient {
-  public readonly events: EventManager
-
-  constructor(public readonly discordClient: Client<true>) {
+  constructor(
+    public readonly discordClient: Client<true>,
+    public readonly events: EventManager
+  ) {
     this.discordClient = discordClient
-    this.events = new EventManager()
+    this.events = events
   }
 
   public async init(token?: string) {

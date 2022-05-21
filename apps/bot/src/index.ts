@@ -1,6 +1,6 @@
 import { Client } from 'discord.js'
 import dotenv from 'dotenv'
-import { BotClient } from 'lib'
+import { BotClient, EventManager } from 'lib'
 import path from 'node:path'
 
 dotenv.config()
@@ -8,7 +8,8 @@ dotenv.config()
 const client = new Client({ intents: [] })
 
 async function bootstrap() {
-  const bot = new BotClient(client)
+  const eventManager = new EventManager()
+  const bot = new BotClient(client, eventManager)
   await bot.events.loadEvents(path.join(__dirname, 'events'))
   await bot.init(process.env.DISCORD_TOKEN)
 }
