@@ -38,7 +38,6 @@ export class EventManager {
     event: TEvent,
     listener: EventCallback<TEvent>
   ): this
-
   public on(
     event: string | symbol,
     listener: (...args: any[]) => Awaitable<void>
@@ -54,13 +53,10 @@ export class EventManager {
 
   public async loadEvents(path: string) {
     for (const file of await readdir(path)) {
-      if (
-        !this.options.allowedExtensions.some(
-          ext => ext.toLowerCase() === extname(file).toLowerCase()
-        )
-      ) {
-        continue
-      }
+      const isAllowedExtension = this.options.allowedExtensions.some(
+        ext => ext.toLowerCase() === extname(file).toLowerCase()
+      )
+      if (!isAllowedExtension) continue
 
       const eventModule = await import(resolve(path, file))
       this.on(eventModule.event.name, eventModule.event.run)
